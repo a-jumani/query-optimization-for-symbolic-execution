@@ -1,0 +1,12 @@
+from z3 import *
+
+<s_obj>.add(<predicate>, <predicate>, ...)	add predicates to s
+<s_obj>.push()					set a restore point
+<s_obj>.pop()					restore to the most recent push
+<s_obj1> = <s_obj>.translate(<cont>)		create a copy of <s_obj> under context <cont>; <s_obj> must not have a restore point; existing variable
+						will be "add"-ed to <s_obj1> within predicates after translation to <cont> as well
+<s_obj>.check()					check satisfiability; return z3.sat if <s_obj> is satisfiable and z3.unsat otherwise
+<s_obj>.model()					to get the solution if <s_obj> is satisfiable
+
+
+<var> = Context()				create a context
